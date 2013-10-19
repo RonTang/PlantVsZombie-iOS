@@ -1,0 +1,569 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1894DD7817D42DB0009C56CD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1894DD7717D42DB0009C56CD /* UIKit.framework */; };
+		1894DD7A17D42DB0009C56CD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1894DD7917D42DB0009C56CD /* Foundation.framework */; };
+		1894DD7C17D42DB0009C56CD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1894DD7B17D42DB0009C56CD /* CoreGraphics.framework */; };
+		1894DD8217D42DB0009C56CD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1894DD8017D42DB0009C56CD /* InfoPlist.strings */; };
+		1894DD8417D42DB0009C56CD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1894DD8317D42DB0009C56CD /* main.m */; };
+		1894DD8817D42DB0009C56CD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1894DD8717D42DB0009C56CD /* AppDelegate.m */; };
+		1894DD8A17D42DB0009C56CD /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 1894DD8917D42DB0009C56CD /* Default.png */; };
+		1894DD8C17D42DB0009C56CD /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1894DD8B17D42DB0009C56CD /* Default@2x.png */; };
+		1894DD8E17D42DB0009C56CD /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1894DD8D17D42DB0009C56CD /* Default-568h@2x.png */; };
+		1894DD9117D42DB0009C56CD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1894DD9017D42DB0009C56CD /* ViewController.m */; };
+		1894DD9417D42DB0009C56CD /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1894DD9217D42DB0009C56CD /* ViewController.xib */; };
+		1894DDA317D43C34009C56CD /* zomb_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 1894DDA217D43C34009C56CD /* zomb_0.png */; };
+		1894DDA617D43C7E009C56CD /* bk1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1894DDA517D43C7E009C56CD /* bk1.png */; };
+		1894DDAD17D43D99009C56CD /* NormalZombie.m in Sources */ = {isa = PBXBuildFile; fileRef = 1894DDAC17D43D99009C56CD /* NormalZombie.m */; };
+		1894DDAF17D455C8009C56CD /* zomb_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1894DDAE17D455C8009C56CD /* zomb_1.png */; };
+		1894DDB117D455D9009C56CD /* zomb_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1894DDB017D455D9009C56CD /* zomb_2.png */; };
+		1894DDB517D45823009C56CD /* bullet_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 1894DDB417D45823009C56CD /* bullet_0.png */; };
+		1894DDB817D4584B009C56CD /* Shooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1894DDB717D4584B009C56CD /* Shooter.m */; };
+		1894DDBB17D45C0B009C56CD /* Bullet.m in Sources */ = {isa = PBXBuildFile; fileRef = 1894DDBA17D45C0B009C56CD /* Bullet.m */; };
+		1895216617E172CE00749F17 /* ImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1895216517E172CE00749F17 /* ImageManager.m */; };
+		1895216B17E1999D00749F17 /* Zombie.m in Sources */ = {isa = PBXBuildFile; fileRef = 1895216A17E1999D00749F17 /* Zombie.m */; };
+		1895216D17E19FDE00749F17 /* plant_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 1895216C17E19FDE00749F17 /* plant_0.png */; };
+		1895216F17E19FE600749F17 /* plant_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1895216E17E19FE600749F17 /* plant_1.png */; };
+		1895217117E19FFE00749F17 /* plant_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1895217017E19FFE00749F17 /* plant_2.png */; };
+		1895217317E1A00900749F17 /* plant_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 1895217217E1A00900749F17 /* plant_3.png */; };
+		1895217617E1A20900749F17 /* Plant.m in Sources */ = {isa = PBXBuildFile; fileRef = 1895217517E1A20900749F17 /* Plant.m */; };
+		1895217D17E1A8DF00749F17 /* sunbank.png in Resources */ = {isa = PBXBuildFile; fileRef = 1895217C17E1A8DF00749F17 /* sunbank.png */; };
+		1895217F17E1A8F400749F17 /* seedpackets.png in Resources */ = {isa = PBXBuildFile; fileRef = 1895217E17E1A8F400749F17 /* seedpackets.png */; };
+		1895218117E1A97C00749F17 /* shovel.png in Resources */ = {isa = PBXBuildFile; fileRef = 1895218017E1A97C00749F17 /* shovel.png */; };
+		1895218317E1A9AB00749F17 /* shovel_bk.png in Resources */ = {isa = PBXBuildFile; fileRef = 1895218217E1A9AB00749F17 /* shovel_bk.png */; };
+		1895218517E1A9CD00749F17 /* seedbank.png in Resources */ = {isa = PBXBuildFile; fileRef = 1895218417E1A9CD00749F17 /* seedbank.png */; };
+		1895218C17E1B91800749F17 /* SunFlower.m in Sources */ = {isa = PBXBuildFile; fileRef = 1895218B17E1B91800749F17 /* SunFlower.m */; };
+		1895218F17E1BE4900749F17 /* PlantSimpleFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 1895218E17E1BE4900749F17 /* PlantSimpleFactory.m */; };
+		1895219217E1C0D000749F17 /* IceShooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1895219117E1C0D000749F17 /* IceShooter.m */; };
+		1895219517E1C14800749F17 /* BigNut.m in Sources */ = {isa = PBXBuildFile; fileRef = 1895219417E1C14800749F17 /* BigNut.m */; };
+		18965D1A17E4482E0086B80F /* ShadeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18965D1917E4482E0086B80F /* ShadeView.m */; };
+		18989E1018063D3F00351DBF /* bullet_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 18989E0F18063D3F00351DBF /* bullet_2.png */; };
+		18989E1218063DA700351DBF /* plant_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 18989E1118063DA700351DBF /* plant_4.png */; };
+		1899EED517E298BA0066A1EC /* zomb_d_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 1899EED417E298BA0066A1EC /* zomb_d_0.png */; };
+		1899EED917E2BC760066A1EC /* IceBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = 1899EED817E2BC760066A1EC /* IceBullet.m */; };
+		1899EEDB17E2BFC90066A1EC /* bullet_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1899EEDA17E2BFC90066A1EC /* bullet_1.png */; };
+		1899EEDF17E2D4D80066A1EC /* Shovel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1899EEDE17E2D4D80066A1EC /* Shovel.m */; };
+		1899EEE117E2EA280066A1EC /* sun.png in Resources */ = {isa = PBXBuildFile; fileRef = 1899EEE017E2EA280066A1EC /* sun.png */; };
+		1899EEE417E2EA370066A1EC /* SunShine.m in Sources */ = {isa = PBXBuildFile; fileRef = 1899EEE317E2EA370066A1EC /* SunShine.m */; };
+		189C1D8917D5655E004DCEC9 /* RoadBlockZombie.m in Sources */ = {isa = PBXBuildFile; fileRef = 189C1D8817D5655E004DCEC9 /* RoadBlockZombie.m */; };
+		189C1D8C17D56720004DCEC9 /* DrumZombie.m in Sources */ = {isa = PBXBuildFile; fileRef = 189C1D8B17D56720004DCEC9 /* DrumZombie.m */; };
+		189C1D8F17D567DA004DCEC9 /* ZombieSimpleFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 189C1D8E17D567DA004DCEC9 /* ZombieSimpleFactory.m */; };
+		189C1D9117D5701E004DCEC9 /* zomb_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 189C1D9017D5701E004DCEC9 /* zomb_3.png */; };
+		189C1D9417D57044004DCEC9 /* SportZombie.m in Sources */ = {isa = PBXBuildFile; fileRef = 189C1D9317D57044004DCEC9 /* SportZombie.m */; };
+		18B318B117E6954800E7E970 /* Torch.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B318B017E6954800E7E970 /* Torch.m */; };
+		18B318F017E6E5FC00E7E970 /* ZombiePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B318EF17E6E5FC00E7E970 /* ZombiePool.m */; };
+		18BF094417E9A33A00605A67 /* BulletPool.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BF094317E9A33A00605A67 /* BulletPool.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1894DD7317D42DB0009C56CD /* PlantsVsZombies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlantsVsZombies.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1894DD7717D42DB0009C56CD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		1894DD7917D42DB0009C56CD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1894DD7B17D42DB0009C56CD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		1894DD7F17D42DB0009C56CD /* PlantsVsZombies-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PlantsVsZombies-Info.plist"; sourceTree = "<group>"; };
+		1894DD8117D42DB0009C56CD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1894DD8317D42DB0009C56CD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1894DD8517D42DB0009C56CD /* PlantsVsZombies-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PlantsVsZombies-Prefix.pch"; sourceTree = "<group>"; };
+		1894DD8617D42DB0009C56CD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		1894DD8717D42DB0009C56CD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		1894DD8917D42DB0009C56CD /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		1894DD8B17D42DB0009C56CD /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		1894DD8D17D42DB0009C56CD /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		1894DD8F17D42DB0009C56CD /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		1894DD9017D42DB0009C56CD /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		1894DD9317D42DB0009C56CD /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		1894DDA217D43C34009C56CD /* zomb_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zomb_0.png; sourceTree = "<group>"; };
+		1894DDA517D43C7E009C56CD /* bk1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bk1.png; sourceTree = "<group>"; };
+		1894DDAB17D43D99009C56CD /* NormalZombie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NormalZombie.h; sourceTree = "<group>"; };
+		1894DDAC17D43D99009C56CD /* NormalZombie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NormalZombie.m; sourceTree = "<group>"; };
+		1894DDAE17D455C8009C56CD /* zomb_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zomb_1.png; sourceTree = "<group>"; };
+		1894DDB017D455D9009C56CD /* zomb_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zomb_2.png; sourceTree = "<group>"; };
+		1894DDB417D45823009C56CD /* bullet_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bullet_0.png; sourceTree = "<group>"; };
+		1894DDB617D4584B009C56CD /* Shooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shooter.h; sourceTree = "<group>"; };
+		1894DDB717D4584B009C56CD /* Shooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shooter.m; sourceTree = "<group>"; };
+		1894DDB917D45C0B009C56CD /* Bullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bullet.h; sourceTree = "<group>"; };
+		1894DDBA17D45C0B009C56CD /* Bullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bullet.m; sourceTree = "<group>"; };
+		1895216417E172CE00749F17 /* ImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageManager.h; sourceTree = "<group>"; };
+		1895216517E172CE00749F17 /* ImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageManager.m; sourceTree = "<group>"; };
+		1895216917E1999D00749F17 /* Zombie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Zombie.h; sourceTree = "<group>"; };
+		1895216A17E1999D00749F17 /* Zombie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Zombie.m; sourceTree = "<group>"; };
+		1895216C17E19FDE00749F17 /* plant_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plant_0.png; sourceTree = "<group>"; };
+		1895216E17E19FE600749F17 /* plant_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plant_1.png; sourceTree = "<group>"; };
+		1895217017E19FFE00749F17 /* plant_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plant_2.png; sourceTree = "<group>"; };
+		1895217217E1A00900749F17 /* plant_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plant_3.png; sourceTree = "<group>"; };
+		1895217417E1A20900749F17 /* Plant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Plant.h; sourceTree = "<group>"; };
+		1895217517E1A20900749F17 /* Plant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Plant.m; sourceTree = "<group>"; };
+		1895217717E1A35400749F17 /* Plants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Plants.h; sourceTree = "<group>"; };
+		1895217C17E1A8DF00749F17 /* sunbank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sunbank.png; sourceTree = "<group>"; };
+		1895217E17E1A8F400749F17 /* seedpackets.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = seedpackets.png; sourceTree = "<group>"; };
+		1895218017E1A97C00749F17 /* shovel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shovel.png; sourceTree = "<group>"; };
+		1895218217E1A9AB00749F17 /* shovel_bk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shovel_bk.png; sourceTree = "<group>"; };
+		1895218417E1A9CD00749F17 /* seedbank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = seedbank.png; sourceTree = "<group>"; };
+		1895218A17E1B91800749F17 /* SunFlower.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SunFlower.h; sourceTree = "<group>"; };
+		1895218B17E1B91800749F17 /* SunFlower.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SunFlower.m; sourceTree = "<group>"; };
+		1895218D17E1BE4900749F17 /* PlantSimpleFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlantSimpleFactory.h; sourceTree = "<group>"; };
+		1895218E17E1BE4900749F17 /* PlantSimpleFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlantSimpleFactory.m; sourceTree = "<group>"; };
+		1895219017E1C0D000749F17 /* IceShooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IceShooter.h; sourceTree = "<group>"; };
+		1895219117E1C0D000749F17 /* IceShooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IceShooter.m; sourceTree = "<group>"; };
+		1895219317E1C14800749F17 /* BigNut.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BigNut.h; sourceTree = "<group>"; };
+		1895219417E1C14800749F17 /* BigNut.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BigNut.m; sourceTree = "<group>"; };
+		18965D1817E4482E0086B80F /* ShadeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShadeView.h; sourceTree = "<group>"; };
+		18965D1917E4482E0086B80F /* ShadeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShadeView.m; sourceTree = "<group>"; };
+		18989E0F18063D3F00351DBF /* bullet_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bullet_2.png; sourceTree = "<group>"; };
+		18989E1118063DA700351DBF /* plant_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plant_4.png; sourceTree = "<group>"; };
+		1899EED417E298BA0066A1EC /* zomb_d_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zomb_d_0.png; sourceTree = "<group>"; };
+		1899EED717E2BC760066A1EC /* IceBullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IceBullet.h; sourceTree = "<group>"; };
+		1899EED817E2BC760066A1EC /* IceBullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IceBullet.m; sourceTree = "<group>"; };
+		1899EEDA17E2BFC90066A1EC /* bullet_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bullet_1.png; sourceTree = "<group>"; };
+		1899EEDD17E2D4D80066A1EC /* Shovel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shovel.h; sourceTree = "<group>"; };
+		1899EEDE17E2D4D80066A1EC /* Shovel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shovel.m; sourceTree = "<group>"; };
+		1899EEE017E2EA280066A1EC /* sun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sun.png; sourceTree = "<group>"; };
+		1899EEE217E2EA370066A1EC /* SunShine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SunShine.h; sourceTree = "<group>"; };
+		1899EEE317E2EA370066A1EC /* SunShine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SunShine.m; sourceTree = "<group>"; };
+		189C1D8617D5644F004DCEC9 /* Zombies.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Zombies.h; sourceTree = "<group>"; };
+		189C1D8717D5655E004DCEC9 /* RoadBlockZombie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoadBlockZombie.h; sourceTree = "<group>"; };
+		189C1D8817D5655E004DCEC9 /* RoadBlockZombie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoadBlockZombie.m; sourceTree = "<group>"; };
+		189C1D8A17D56720004DCEC9 /* DrumZombie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrumZombie.h; sourceTree = "<group>"; };
+		189C1D8B17D56720004DCEC9 /* DrumZombie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrumZombie.m; sourceTree = "<group>"; };
+		189C1D8D17D567DA004DCEC9 /* ZombieSimpleFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZombieSimpleFactory.h; sourceTree = "<group>"; };
+		189C1D8E17D567DA004DCEC9 /* ZombieSimpleFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZombieSimpleFactory.m; sourceTree = "<group>"; };
+		189C1D9017D5701E004DCEC9 /* zomb_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zomb_3.png; sourceTree = "<group>"; };
+		189C1D9217D57044004DCEC9 /* SportZombie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SportZombie.h; sourceTree = "<group>"; };
+		189C1D9317D57044004DCEC9 /* SportZombie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SportZombie.m; sourceTree = "<group>"; };
+		18B318AF17E6954800E7E970 /* Torch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Torch.h; sourceTree = "<group>"; };
+		18B318B017E6954800E7E970 /* Torch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Torch.m; sourceTree = "<group>"; };
+		18B318EE17E6E5FC00E7E970 /* ZombiePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZombiePool.h; sourceTree = "<group>"; };
+		18B318EF17E6E5FC00E7E970 /* ZombiePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZombiePool.m; sourceTree = "<group>"; };
+		18BF094217E9A33A00605A67 /* BulletPool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BulletPool.h; sourceTree = "<group>"; };
+		18BF094317E9A33A00605A67 /* BulletPool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BulletPool.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1894DD7017D42DB0009C56CD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1894DD7817D42DB0009C56CD /* UIKit.framework in Frameworks */,
+				1894DD7A17D42DB0009C56CD /* Foundation.framework in Frameworks */,
+				1894DD7C17D42DB0009C56CD /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1894DD6817D42DB0009C56CD = {
+			isa = PBXGroup;
+			children = (
+				1894DD7D17D42DB0009C56CD /* PlantsVsZombies */,
+				1894DD7617D42DB0009C56CD /* Frameworks */,
+				1894DD7417D42DB0009C56CD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1894DD7417D42DB0009C56CD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1894DD7317D42DB0009C56CD /* PlantsVsZombies.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1894DD7617D42DB0009C56CD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1894DD7717D42DB0009C56CD /* UIKit.framework */,
+				1894DD7917D42DB0009C56CD /* Foundation.framework */,
+				1894DD7B17D42DB0009C56CD /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1894DD7D17D42DB0009C56CD /* PlantsVsZombies */ = {
+			isa = PBXGroup;
+			children = (
+				1899EEDC17E2D4AC0066A1EC /* Tools */,
+				1895216217E172B100749F17 /* utils */,
+				189C1D9917D574D8004DCEC9 /* viewController */,
+				189C1D9817D574B0004DCEC9 /* Pictures */,
+				189C1D9717D5749A004DCEC9 /* Bullets */,
+				189C1D9617D5746F004DCEC9 /* Plants */,
+				189C1D9517D5743E004DCEC9 /* Zombies */,
+				1894DD7E17D42DB0009C56CD /* Supporting Files */,
+			);
+			name = PlantsVsZombies;
+			path = ImageViewLearn;
+			sourceTree = "<group>";
+		};
+		1894DD7E17D42DB0009C56CD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1894DD8617D42DB0009C56CD /* AppDelegate.h */,
+				1894DD8717D42DB0009C56CD /* AppDelegate.m */,
+				1894DD7F17D42DB0009C56CD /* PlantsVsZombies-Info.plist */,
+				1894DD8017D42DB0009C56CD /* InfoPlist.strings */,
+				1894DD8317D42DB0009C56CD /* main.m */,
+				1894DD8517D42DB0009C56CD /* PlantsVsZombies-Prefix.pch */,
+				1894DD8917D42DB0009C56CD /* Default.png */,
+				1894DD8B17D42DB0009C56CD /* Default@2x.png */,
+				1894DD8D17D42DB0009C56CD /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1895216217E172B100749F17 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				1895216417E172CE00749F17 /* ImageManager.h */,
+				1895216517E172CE00749F17 /* ImageManager.m */,
+			);
+			name = utils;
+			sourceTree = "<group>";
+		};
+		1899EEDC17E2D4AC0066A1EC /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				1899EEDD17E2D4D80066A1EC /* Shovel.h */,
+				1899EEDE17E2D4D80066A1EC /* Shovel.m */,
+				1899EEE217E2EA370066A1EC /* SunShine.h */,
+				1899EEE317E2EA370066A1EC /* SunShine.m */,
+				18965D1817E4482E0086B80F /* ShadeView.h */,
+				18965D1917E4482E0086B80F /* ShadeView.m */,
+				18B318EE17E6E5FC00E7E970 /* ZombiePool.h */,
+				18B318EF17E6E5FC00E7E970 /* ZombiePool.m */,
+				18BF094217E9A33A00605A67 /* BulletPool.h */,
+				18BF094317E9A33A00605A67 /* BulletPool.m */,
+			);
+			name = Tools;
+			sourceTree = "<group>";
+		};
+		189C1D9517D5743E004DCEC9 /* Zombies */ = {
+			isa = PBXGroup;
+			children = (
+				189C1D8E17D567DA004DCEC9 /* ZombieSimpleFactory.m */,
+				189C1D8D17D567DA004DCEC9 /* ZombieSimpleFactory.h */,
+				189C1D8617D5644F004DCEC9 /* Zombies.h */,
+				189C1D8B17D56720004DCEC9 /* DrumZombie.m */,
+				189C1D8A17D56720004DCEC9 /* DrumZombie.h */,
+				189C1D8817D5655E004DCEC9 /* RoadBlockZombie.m */,
+				189C1D8717D5655E004DCEC9 /* RoadBlockZombie.h */,
+				1894DDAC17D43D99009C56CD /* NormalZombie.m */,
+				1894DDAB17D43D99009C56CD /* NormalZombie.h */,
+				189C1D9317D57044004DCEC9 /* SportZombie.m */,
+				189C1D9217D57044004DCEC9 /* SportZombie.h */,
+				1895216917E1999D00749F17 /* Zombie.h */,
+				1895216A17E1999D00749F17 /* Zombie.m */,
+			);
+			name = Zombies;
+			sourceTree = "<group>";
+		};
+		189C1D9617D5746F004DCEC9 /* Plants */ = {
+			isa = PBXGroup;
+			children = (
+				1894DDB717D4584B009C56CD /* Shooter.m */,
+				1894DDB617D4584B009C56CD /* Shooter.h */,
+				1895217417E1A20900749F17 /* Plant.h */,
+				1895217517E1A20900749F17 /* Plant.m */,
+				1895217717E1A35400749F17 /* Plants.h */,
+				1895218A17E1B91800749F17 /* SunFlower.h */,
+				1895218B17E1B91800749F17 /* SunFlower.m */,
+				1895218D17E1BE4900749F17 /* PlantSimpleFactory.h */,
+				1895218E17E1BE4900749F17 /* PlantSimpleFactory.m */,
+				1895219017E1C0D000749F17 /* IceShooter.h */,
+				1895219117E1C0D000749F17 /* IceShooter.m */,
+				1895219317E1C14800749F17 /* BigNut.h */,
+				1895219417E1C14800749F17 /* BigNut.m */,
+				18B318AF17E6954800E7E970 /* Torch.h */,
+				18B318B017E6954800E7E970 /* Torch.m */,
+			);
+			name = Plants;
+			sourceTree = "<group>";
+		};
+		189C1D9717D5749A004DCEC9 /* Bullets */ = {
+			isa = PBXGroup;
+			children = (
+				1894DDBA17D45C0B009C56CD /* Bullet.m */,
+				1894DDB917D45C0B009C56CD /* Bullet.h */,
+				1899EED717E2BC760066A1EC /* IceBullet.h */,
+				1899EED817E2BC760066A1EC /* IceBullet.m */,
+			);
+			name = Bullets;
+			sourceTree = "<group>";
+		};
+		189C1D9817D574B0004DCEC9 /* Pictures */ = {
+			isa = PBXGroup;
+			children = (
+				18989E1118063DA700351DBF /* plant_4.png */,
+				18989E0F18063D3F00351DBF /* bullet_2.png */,
+				1899EEE017E2EA280066A1EC /* sun.png */,
+				1899EEDA17E2BFC90066A1EC /* bullet_1.png */,
+				1899EED417E298BA0066A1EC /* zomb_d_0.png */,
+				1895218417E1A9CD00749F17 /* seedbank.png */,
+				1895218217E1A9AB00749F17 /* shovel_bk.png */,
+				1895218017E1A97C00749F17 /* shovel.png */,
+				1895217E17E1A8F400749F17 /* seedpackets.png */,
+				1895217C17E1A8DF00749F17 /* sunbank.png */,
+				1895216C17E19FDE00749F17 /* plant_0.png */,
+				1895216E17E19FE600749F17 /* plant_1.png */,
+				1895217017E19FFE00749F17 /* plant_2.png */,
+				1895217217E1A00900749F17 /* plant_3.png */,
+				1894DDA217D43C34009C56CD /* zomb_0.png */,
+				1894DDAE17D455C8009C56CD /* zomb_1.png */,
+				1894DDB017D455D9009C56CD /* zomb_2.png */,
+				189C1D9017D5701E004DCEC9 /* zomb_3.png */,
+				1894DDA517D43C7E009C56CD /* bk1.png */,
+				1894DDB417D45823009C56CD /* bullet_0.png */,
+			);
+			name = Pictures;
+			sourceTree = "<group>";
+		};
+		189C1D9917D574D8004DCEC9 /* viewController */ = {
+			isa = PBXGroup;
+			children = (
+				1894DD9217D42DB0009C56CD /* ViewController.xib */,
+				1894DD9017D42DB0009C56CD /* ViewController.m */,
+				1894DD8F17D42DB0009C56CD /* ViewController.h */,
+			);
+			name = viewController;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1894DD7217D42DB0009C56CD /* PlantsVsZombies */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1894DD9717D42DB0009C56CD /* Build configuration list for PBXNativeTarget "PlantsVsZombies" */;
+			buildPhases = (
+				1894DD6F17D42DB0009C56CD /* Sources */,
+				1894DD7017D42DB0009C56CD /* Frameworks */,
+				1894DD7117D42DB0009C56CD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PlantsVsZombies;
+			productName = ImageViewLearn;
+			productReference = 1894DD7317D42DB0009C56CD /* PlantsVsZombies.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1894DD6A17D42DB0009C56CD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = Apple.org;
+			};
+			buildConfigurationList = 1894DD6D17D42DB0009C56CD /* Build configuration list for PBXProject "PlantsVsZombies" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 1894DD6817D42DB0009C56CD;
+			productRefGroup = 1894DD7417D42DB0009C56CD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1894DD7217D42DB0009C56CD /* PlantsVsZombies */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1894DD7117D42DB0009C56CD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1894DD8217D42DB0009C56CD /* InfoPlist.strings in Resources */,
+				1894DD8A17D42DB0009C56CD /* Default.png in Resources */,
+				1894DD8C17D42DB0009C56CD /* Default@2x.png in Resources */,
+				1894DD8E17D42DB0009C56CD /* Default-568h@2x.png in Resources */,
+				1894DD9417D42DB0009C56CD /* ViewController.xib in Resources */,
+				1894DDA317D43C34009C56CD /* zomb_0.png in Resources */,
+				1894DDA617D43C7E009C56CD /* bk1.png in Resources */,
+				1894DDAF17D455C8009C56CD /* zomb_1.png in Resources */,
+				1894DDB117D455D9009C56CD /* zomb_2.png in Resources */,
+				1894DDB517D45823009C56CD /* bullet_0.png in Resources */,
+				189C1D9117D5701E004DCEC9 /* zomb_3.png in Resources */,
+				1895216D17E19FDE00749F17 /* plant_0.png in Resources */,
+				1895216F17E19FE600749F17 /* plant_1.png in Resources */,
+				1895217117E19FFE00749F17 /* plant_2.png in Resources */,
+				1895217317E1A00900749F17 /* plant_3.png in Resources */,
+				1895217D17E1A8DF00749F17 /* sunbank.png in Resources */,
+				1895217F17E1A8F400749F17 /* seedpackets.png in Resources */,
+				1895218117E1A97C00749F17 /* shovel.png in Resources */,
+				1895218317E1A9AB00749F17 /* shovel_bk.png in Resources */,
+				1895218517E1A9CD00749F17 /* seedbank.png in Resources */,
+				1899EED517E298BA0066A1EC /* zomb_d_0.png in Resources */,
+				1899EEDB17E2BFC90066A1EC /* bullet_1.png in Resources */,
+				1899EEE117E2EA280066A1EC /* sun.png in Resources */,
+				18989E1018063D3F00351DBF /* bullet_2.png in Resources */,
+				18989E1218063DA700351DBF /* plant_4.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1894DD6F17D42DB0009C56CD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1894DD8417D42DB0009C56CD /* main.m in Sources */,
+				1894DD8817D42DB0009C56CD /* AppDelegate.m in Sources */,
+				1894DD9117D42DB0009C56CD /* ViewController.m in Sources */,
+				1894DDAD17D43D99009C56CD /* NormalZombie.m in Sources */,
+				1894DDB817D4584B009C56CD /* Shooter.m in Sources */,
+				1894DDBB17D45C0B009C56CD /* Bullet.m in Sources */,
+				189C1D8917D5655E004DCEC9 /* RoadBlockZombie.m in Sources */,
+				189C1D8C17D56720004DCEC9 /* DrumZombie.m in Sources */,
+				189C1D8F17D567DA004DCEC9 /* ZombieSimpleFactory.m in Sources */,
+				189C1D9417D57044004DCEC9 /* SportZombie.m in Sources */,
+				1895216617E172CE00749F17 /* ImageManager.m in Sources */,
+				1895216B17E1999D00749F17 /* Zombie.m in Sources */,
+				1895217617E1A20900749F17 /* Plant.m in Sources */,
+				1895218C17E1B91800749F17 /* SunFlower.m in Sources */,
+				1895218F17E1BE4900749F17 /* PlantSimpleFactory.m in Sources */,
+				1895219217E1C0D000749F17 /* IceShooter.m in Sources */,
+				1895219517E1C14800749F17 /* BigNut.m in Sources */,
+				1899EED917E2BC760066A1EC /* IceBullet.m in Sources */,
+				1899EEDF17E2D4D80066A1EC /* Shovel.m in Sources */,
+				1899EEE417E2EA370066A1EC /* SunShine.m in Sources */,
+				18965D1A17E4482E0086B80F /* ShadeView.m in Sources */,
+				18B318B117E6954800E7E970 /* Torch.m in Sources */,
+				18B318F017E6E5FC00E7E970 /* ZombiePool.m in Sources */,
+				18BF094417E9A33A00605A67 /* BulletPool.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		1894DD8017D42DB0009C56CD /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1894DD8117D42DB0009C56CD /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		1894DD9217D42DB0009C56CD /* ViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1894DD9317D42DB0009C56CD /* en */,
+			);
+			name = ViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1894DD9517D42DB0009C56CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		1894DD9617D42DB0009C56CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1894DD9817D42DB0009C56CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ImageViewLearn/PlantsVsZombies-Prefix.pch";
+				INFOPLIST_FILE = "ImageViewLearn/PlantsVsZombies-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				PRODUCT_NAME = PlantsVsZombies;
+				TARGETED_DEVICE_FAMILY = 1;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		1894DD9917D42DB0009C56CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ImageViewLearn/PlantsVsZombies-Prefix.pch";
+				INFOPLIST_FILE = "ImageViewLearn/PlantsVsZombies-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				PRODUCT_NAME = PlantsVsZombies;
+				TARGETED_DEVICE_FAMILY = 1;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1894DD6D17D42DB0009C56CD /* Build configuration list for PBXProject "PlantsVsZombies" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1894DD9517D42DB0009C56CD /* Debug */,
+				1894DD9617D42DB0009C56CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1894DD9717D42DB0009C56CD /* Build configuration list for PBXNativeTarget "PlantsVsZombies" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1894DD9817D42DB0009C56CD /* Debug */,
+				1894DD9917D42DB0009C56CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1894DD6A17D42DB0009C56CD /* Project object */;
+}
