@@ -8,6 +8,8 @@
 
 #import "ZombiePool.h"
 #import "ZombieSimpleFactory.h"
+#import "ViewController.h"
+#import "SportZombie.h"
 @interface ZombiePool()
 @property (nonatomic,retain)NSMutableArray* allZombies;
 @property (nonatomic,assign)ZombieSimpleFactory* zombieFactory;
@@ -54,10 +56,15 @@
     
     }
     zombie.slowDownCount=0;
-    zombie.liftCount=2;
+    zombie.liftCount=5;
     zombie.offset=3;
+    zombie.oldOffset=3;
+    if ([zombie isMemberOfClass:[SportZombie class]]) {
+       
+        zombie.oldOffset=4;
+    }
     zombie.alpha=1;
-    
+    zombie.myLineZombies=self.zombieFactory.vc.allZombies[zombie.lineNum];
     return  zombie;
 }
 

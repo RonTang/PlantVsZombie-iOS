@@ -28,7 +28,7 @@
     if([self respondsToSelector:@selector(shake:)])
     self.shakeTimer  =[NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(shake:) userInfo:nil repeats:YES];
     if([self respondsToSelector:@selector(shoot:)])
-    self.shootTimer  =[NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(shoot:) userInfo:nil repeats:YES];
+    self.shootTimer  =[NSTimer scheduledTimerWithTimeInterval:1.6 target:self selector:@selector(shoot:) userInfo:nil repeats:YES];
     if([self respondsToSelector:@selector(comingSunshine)])
     self.shineTimer=[NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(comingSunshine) userInfo:nil repeats:YES];
     NSLog(@"flower life:%i",[self retainCount]);
@@ -61,7 +61,7 @@
       
     }
     
-    //[self release];
+   
      NSLog(@"dead Plant:retainCount:%i",[self retainCount]);
     [self.vc.allPlants[self.lineNum] removeObject:self];
     NSLog(@"dead Plant:retainCount:%i",[self retainCount]);

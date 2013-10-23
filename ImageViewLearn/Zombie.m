@@ -25,12 +25,12 @@
     
     if(self=[super init]){
         self.slowDownCount=-1;
-        self.offset=3;
         self.vc=vc;
-        self.speed=0;
+        //self.speed=0;
         //self.lineNum=arc4random()%5;
         //self.myLinePlants=self.vc.allPlants[self.lineNum];
         //self.frame=CGRectMake(480,42+58*(self.lineNum)-26, 45, 88);
+      
         [self.vc.allZombies[self.lineNum] addObject:self];
         [self setContentMode:UIViewContentModeScaleAspectFill];
        
@@ -65,22 +65,8 @@
 //    }
 //}
 -(void)move{
-    //NSLog(@"move...");
-    if(self.count==self.animationImages.count){
-        if(self.animationImages.count!=4)
-          self.count=0;
-        else{
-            [self removeFromSuperview];
-            [self.vc.allZombies[self.lineNum] removeObject:self];
-            [self.vc.zombiePool addZombie:self];
-            return;
-        }
-            
-        
-    }
-    self.image=self.animationImages[self.count];
-       self.count+=1;
-   //------------------
+    [self showAnimation];
+    
     for(int i=0;i<_myLinePlants.count;i++){
         Plant* plant=_myLinePlants[i];
        
@@ -95,32 +81,70 @@
         }
     
     }
-    //-------------------
-    self.center = CGPointMake(self.center.x-self.offset, self.center.y);
-    //-------------------
-    if(self.slowDownCount>0)
-        self.slowDownCount-=1;
-    else if(self.slowDownCount==0){
-        self.offset=3;
-        self.alpha=1;
-    }
-    //------------------
-    if(self.center.x<=-25){
+       
+    [self exchangeLocation];
+    [self moveState];
+    [self moveToHome];
     
-        self.vc.failCount+=1;
-        [self removeFromSuperview];
-        [self.vc.allZombies[self.lineNum] removeObject:self];
-        [self.vc.zombiePool addZombie:self];
-        // NSLog(@"go to house...");
-         return;
-    }
     
 
     
 }
+-(void)showAnimation{
+    if(self.count==self.animationImages.count){
+        if(self.animationImages.count!=4)
+            self.count=0;
+        else{
+            [self removeFromSuperview];
+            [self.vc.allZombies[self.lineNum] removeObject:self];
+            [self.vc.zombiePool addZombie:self];
+            return;
+        }
+        
+        
+    }
+    self.image=self.animationImages[self.count];
+    self.count+=1;
+}
+-(void)exchangeLocation{
+    self.center = CGPointMake(self.center.x-self.offset, self.center.y);
+    if(self.myLineZombies.count>0){
+    Zombie* head=[self.myLineZombies objectAtIndex:0];
+    if(self.offset>head.offset){
+        
+        if (self.center.x<head.center.x) {
+            
+            [_myLineZombies exchangeObjectAtIndex:0 withObjectAtIndex: [_myLineZombies indexOfObject:self]];
+            
+        }
+        
+    }
+  }
+}
+-(void)moveState{
+    if(self.slowDownCount>0)
+        self.slowDownCount-=1;
+    else if(self.slowDownCount==0){
+        self.offset=self.oldOffset;
+        self.alpha=1;
+        self.slowDownCount=-1;
+    }
+
+}
+-(void)moveToHome{
+    if(self.center.x<=-25){
+        
+        self.vc.failCount+=1;
+        [self removeFromSuperview];
+        [self.vc.allZombies[self.lineNum] removeObject:self];
+        [self.vc.zombiePool addZombie:self];
+       
+        
+    }
+
+}
 -(void)dealloc{
     NSLog(@"dead Zombie");
-    //[_moveTimer release];
     [super dealloc];
 }
 

@@ -116,12 +116,18 @@ static int oldCount=0;
                     [viewZom goToHell];
                    
                 }
-                //[timer invalidate];
+              
                 [self removeFromSuperview];
-                 // [self release];
                 [self.vc.allBullets removeObject:self];
                 [self.vc.bulletPool addBullet:self];
                 break;
+            }else{
+                if(self.frame.origin.x<viewZom.frame.origin.x){
+                    break;
+                }else{
+                    continue;
+                }
+            
             }
             
         }

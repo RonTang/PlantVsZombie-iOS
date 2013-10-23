@@ -18,7 +18,7 @@
         [self setUserInteractionEnabled:YES];
         self.animationImages= [[ImageManager defaultManager]getPlantImagesByType:4];
         self.image = self.animationImages[0];
-        self.lifeCount=100;
+        self.lifeCount=200;
         self.tag=123;
     }
     return self;
