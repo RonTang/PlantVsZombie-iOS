@@ -7,7 +7,7 @@
 //
 
 #import "Torch.h"
-
+#import "ViewController.h"
 @implementation Torch
 
 - (id)initWithFrame:(CGRect)frame
@@ -19,19 +19,13 @@
         self.animationImages= [[ImageManager defaultManager]getPlantImagesByType:4];
         self.image = self.animationImages[0];
         self.lifeCount=200;
-        self.tag=123;
     }
     return self;
 }
 
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
+-(void)goToHell{
+    [super goToHell];
+    [self.vc.allTorchs[self.lineNum] removeObject:self];
 }
-*/
 
 @end

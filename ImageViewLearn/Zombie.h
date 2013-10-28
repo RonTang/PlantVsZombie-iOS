@@ -9,7 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "Zombies.h"
 @interface Zombie : UIImageView  <Zombies>
+@property (nonatomic,assign)BOOL isDead;
+@property (nonatomic,assign)BOOL isChange;
 @property (nonatomic,assign)int oldOffset;
 @property (nonatomic,assign)NSMutableArray* myLinePlants;
 @property (nonatomic,assign)NSMutableOrderedSet* myLineZombies;
+@property (nonatomic,assign)BOOL canEatPlant;
 @end

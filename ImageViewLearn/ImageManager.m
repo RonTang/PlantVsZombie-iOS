@@ -21,11 +21,13 @@ static UIImage* plant1Image=nil;
 static UIImage* plant2Image=nil;
 static UIImage* plant3Image=nil;
 static UIImage* plant4Image=nil;
+static UIImage* plant5Image=nil;
 static NSMutableArray* plant0Images=nil;
 static NSMutableArray* plant1Images=nil;
 static NSMutableArray* plant2Images=nil;
 static NSMutableArray* plant3Images=nil;
 static NSMutableArray* plant4Images=nil;
+static NSMutableArray* plant5Images=nil;
 static UIImage* zombie0Image=nil;
 static UIImage* zombie1Image=nil;
 static UIImage* zombie2Image=nil;
@@ -45,6 +47,7 @@ static NSMutableArray* plantSeedImages=nil;
         plant2Image=[[UIImage imageNamed:@"plant_2.png"]retain];
         plant3Image=[[UIImage imageNamed:@"plant_3.png"]retain];
         plant4Image=[[UIImage imageNamed:@"plant_4.png"]retain];
+        plant5Image=[[UIImage imageNamed:@"plant_5.png"]retain];
         zombie0DeadImage=[[UIImage imageNamed:@"zomb_d_0.png"]retain];
         
         zombie0DeadImages=[[NSMutableArray array]retain];
@@ -57,12 +60,13 @@ static NSMutableArray* plantSeedImages=nil;
         plant2Images=[[NSMutableArray array]retain];
         plant3Images=[[NSMutableArray array]retain];
         plant4Images=[[NSMutableArray array]retain];
+        plant5Images=[[NSMutableArray array]retain];
         plantSeedImages=[[NSMutableArray array]retain];
         for(int i=0;i<4;i++){
           [im initZombieImagesByImage:[im getZombieImageByType:i] Type:i];
          
                    }
-        for(int i=0;i<5;i++){
+        for(int i=0;i<6;i++){
          [im initPlantImagesByImage:[im getPlantImageByType:i] Type:i];
         }
         
@@ -113,15 +117,17 @@ static NSMutableArray* plantSeedImages=nil;
             case 2:[plant2Images addObject:[UIImage imageWithCGImage:subImage]];break;
             case 3:[plant3Images addObject:[UIImage imageWithCGImage:subImage]];break;
             case 4:[plant4Images addObject:[UIImage imageWithCGImage:subImage]];break;
+            case 5:[plant5Images addObject:[UIImage imageWithCGImage:subImage]];break;
         }
         
         //回收cgimage内存
         CGImageRelease(subImage);
     }
     
+    
 }
 -(void)initPlantSeedImagesByImage:(UIImage*)plantSeedImage{
-    for(int i=0;i<5;i++){
+    for(int i=0;i<6;i++){
         int index = 0;
         switch (i) {
             case 0:
@@ -138,6 +144,9 @@ static NSMutableArray* plantSeedImages=nil;
                 break;
             case 4:
                 index=10;
+                break;
+            case 5:
+                index=9;
                 break;
         }
         CGImageRef subImage = CGImageCreateWithImageInRect(plantSeedImage.CGImage, CGRectMake(index*plantSeedImage.size.width/18, 0, plantSeedImage.size.width/18, plantSeedImage.size.height));
@@ -187,6 +196,8 @@ static NSMutableArray* plantSeedImages=nil;
             return plant3Image;
         case 4:
             return plant4Image;
+        case 5:
+            return plant5Image;
     }
     return nil;
     
@@ -219,6 +230,7 @@ static NSMutableArray* plantSeedImages=nil;
         case 2:return plant2Images;
         case 3:return plant3Images;
         case 4:return plant4Images;
+        case 5:return plant5Images;
     }
     return nil;
 }

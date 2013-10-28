@@ -29,8 +29,6 @@ static UIImage* sunShineImage=nil;
         [self setUserInteractionEnabled:YES];
         [self addGestureRecognizer:tap];
         [tap release];
-        //timer=[NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(disappear) userInfo:nil repeats:NO];
-
         self.frame=CGRectMake(x+10, y-5, 35, 35);
         self.tag=1234;
         self.image =sunShineImage;
@@ -41,7 +39,7 @@ static UIImage* sunShineImage=nil;
 }
 -(void)beginAnimation{
 
-    // NSLog(@"Tap me");
+   
     self.vc.shineCount+=25;
     self.vc.shineLabel.text=[NSString stringWithFormat:@"%i",self.vc
                              .shineCount];
@@ -55,10 +53,9 @@ static UIImage* sunShineImage=nil;
     
 }
 -(void)disappear{
-    //[timer invalidate];
+   
     if(self.superview!=nil){
     [self removeFromSuperview];
-    //if([self gestureRecognizers].count!=0)
     [self removeGestureRecognizer:tap];
     [self release];
     }
@@ -66,7 +63,7 @@ static UIImage* sunShineImage=nil;
 
 }
 -(void)dealloc{
-    //NSLog(@"sunShine dead");
+   
     [super dealloc];
 }
 

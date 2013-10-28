@@ -7,7 +7,7 @@
 //
 
 #import "Bullet.h"
-#import "IceBullet.h"
+
 @implementation Bullet
 static UIImage* bulletImage=nil;
 static UIImage* iceBulletImage=nil;
@@ -25,12 +25,7 @@ static UIImage* fireBulletImage=nil;
         }
         self.frame=CGRectMake(x+10, y-5, 15, 15);
         self.tag=100;
-        //[self changePicture];
-        //[self.vc.view addSubview:self];
-        //self.lineNum=lineNum;
-        //self.myLineZombies=self.vc.allZombies[self.lineNum];
-        //self.myLinePlants=self.vc.allPlants[self.lineNum];
-        //[NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(move:) userInfo:nil repeats:YES];
+        
     }
     return self;
 }
@@ -50,14 +45,35 @@ static UIImage* fireBulletImage=nil;
     
     
     self.center = CGPointMake(self.center.x+1, self.center.y);
-    [self hitZombie];
-
+    if([self moveToZombieHome])
+        return;
+    [self fireMe];
+   
+}
+-(BOOL)moveToZombieHome{
     if(self.center.x>480){
-        //[timer invalidate];
         self.currentFireView=nil;
         [self removeFromSuperview];
-        [self.vc.allBullets removeObject:self];
+        [self.vc.allBullets[self.lineNum] removeObject:self];
         [self.vc.bulletPool addBullet:self];
+        return YES;
+        
+    }
+    return NO;
+}
+-(void)fireMe{
+
+    for(int i=0;i<_myLineTorchs.count;i++){
+        Plant* viewPlant=_myLineTorchs[i];
+        if(CGRectContainsRect(viewPlant.viewRect, self.frame)){
+            
+            if(![viewPlant isEqual:self.currentFireView])
+                [self changeState];
+            self.currentFireView=viewPlant;
+            break;
+            
+        }
+        
     }
 }
 -(void)changeState{
@@ -72,67 +88,68 @@ static UIImage* fireBulletImage=nil;
     [self changePicture];
 
 }
-static int oldCount=0;
--(void)hitZombie{
-    //************//
-    
-    for(int i=0;i<_myLinePlants.count;i++){
-        Plant* viewPlant=_myLinePlants[i];
-        
-            if(CGRectContainsRect(viewPlant.viewRect, self.frame)){
-                if(viewPlant.tag==123){
-                   
-                 if(![viewPlant isEqual:self.currentFireView])
-                        [self changeState];
-                        
-                
-                 self.currentFireView=viewPlant;
-                 return;
-                }
-                
-               
-            }
-        
-    }
-   
-    oldCount=_myLinePlants.count;
+
+
+-(BOOL)hitAllZombie{
+
     for(int i=0;i<_myLineZombies.count;i++){
         Zombie* viewZom=_myLineZombies[i];
-       
-            if(CGRectIntersectsRect(self.frame, viewZom.frame)){
-                self.currentFireView=nil;
-                if(self.bulletState==0){
-                    [self normalHit:viewZom];
-                }else if (self.bulletState==2){
-                    [self iceHit:viewZom];
-                }
-                else if(self.bulletState==1){
-                    [self fireHit:viewZom];
+        if(CGRectIntersectsRect(self.frame, viewZom.frame)){
+            self.currentFireView=nil;
+            if(self.bulletState==0){
+                [self normalHit:viewZom];
+            }else if (self.bulletState==2){
+                [self iceHit:viewZom];
+            }
+            else if(self.bulletState==1){
+                [self fireHit:viewZom];
                 
-                }
-                
-                if(viewZom.liftCount<=0){
-                    viewZom.liftCount=99;
-                    [viewZom goToHell];
-                   
-                }
-              
-                [self removeFromSuperview];
-                [self.vc.allBullets removeObject:self];
-                [self.vc.bulletPool addBullet:self];
-                break;
-            }else{
-                if(self.frame.origin.x<viewZom.frame.origin.x){
-                    break;
-                }else{
-                    continue;
-                }
-            
             }
             
+            if(viewZom.liftCount<=0&&!viewZom.isDead){
+                viewZom.isDead=YES;
+                [viewZom goToHell];
+                
+            }
+            [self removeFromSuperview];
+            [self.vc.allBullets[self.lineNum] removeObject:self];
+            [self.vc.bulletPool addBullet:self];
+            return YES;
+        }
+        
+    }
+    return NO;
+}
+-(BOOL)hitHeadZombie{
+    if (self.myLineZombies.count>0) {
+        Zombie* viewZom=_myLineZombies[0];
+        if(CGRectIntersectsRect(self.frame, viewZom.frame)){
+            self.currentFireView=nil;
+            if(self.bulletState==0){
+                [self normalHit:viewZom];
+            }else if (self.bulletState==2){
+                [self iceHit:viewZom];
+            }
+            else if(self.bulletState==1){
+                [self fireHit:viewZom];
+                
+            }
+            
+            if(viewZom.liftCount<=0&&!viewZom.isDead){
+                viewZom.isDead=YES;
+                [viewZom goToHell];
+                
+            }
+            [self removeFromSuperview];
+            [self.vc.allBullets[self.lineNum] removeObject:self];
+            [self.vc.bulletPool addBullet:self];
+            return YES;
         }
     }
+   
+    return NO;
 
+}
 -(void)normalHit:(Zombie*)zombie{
       zombie.liftCount-=1;
 }
@@ -146,6 +163,7 @@ static int oldCount=0;
       zombie.liftCount-=2;
 
 }
+
 -(void)dealloc{
    
     [super dealloc];

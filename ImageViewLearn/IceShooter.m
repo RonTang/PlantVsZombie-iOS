@@ -7,7 +7,7 @@
 //
 
 #import "IceShooter.h"
-#import "IceBullet.h"
+#import "Bullet.h"
 @implementation IceShooter
 
 - (id)initWithFrame:(CGRect)frame
@@ -31,15 +31,17 @@
     bullet.bulletState=2;
     bullet.fireIndex=-1;
     [bullet changePicture];
+    bullet.myLineTorchs=self.vc.allTorchs[self.lineNum];
     bullet.myLineZombies=self.vc.allZombies[self.lineNum];
     bullet.myLinePlants=self.vc.allPlants[self.lineNum];
-    [self.vc.allBullets addObject:bullet];
+    bullet.myLineBullets=self.vc.allBullets[self.lineNum];
+    [self.vc.allBullets[self.lineNum] addObject:bullet];
     [self.vc.view addSubview:bullet];
-
+   
 
 }
 -(void)dealloc{
-   // NSLog(@"ice dead");
+   
     [super dealloc];
 }
 @end

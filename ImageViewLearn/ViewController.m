@@ -5,15 +5,15 @@
 //  Created by Ron on 13-9-2.
 //  Copyright (c) 2013年 Apple.org. All rights reserved.
 //
-//就差个对象池
+
 #import "ViewController.h"
 #import "ZombieSimpleFactory.h"
 #import "PlantSimpleFactory.h"
 #import "Zombie.h"
+#import "Bullet.h"
 @interface ViewController ()
 @property (nonatomic,retain)ZombieSimpleFactory* zombieFactory;
 @property (nonatomic,retain)PlantSimpleFactory* plantFactory;
-//@property (nonatomic,retain)NSMutableArray* shooters;
 @property (nonatomic,retain)NSTimer* allZombiesMoveTimer;
 @property (nonatomic,retain)NSTimer* allBulletMoveTimer;
 
@@ -36,9 +36,16 @@
     NSMutableArray* line3Plants=[NSMutableArray array];
     NSMutableArray* line4Plants=[NSMutableArray array];
     NSMutableArray* line5Plants=[NSMutableArray array];
-    self.allBullets=[NSMutableArray array];
+    
+    NSMutableArray* line1Torchs=[NSMutableArray array];
+    NSMutableArray* line2Torchs=[NSMutableArray array];
+    NSMutableArray* line3Torchs=[NSMutableArray array];
+    NSMutableArray* line4Torchs=[NSMutableArray array];
+    NSMutableArray* line5Torchs=[NSMutableArray array];
+    
     
     self.allPlants=[NSMutableArray arrayWithObjects:line1Plants,line2Plants,line3Plants,line4Plants,line5Plants, nil];
+    self.allTorchs=[NSMutableArray arrayWithObjects:line1Torchs,line2Torchs,line3Torchs,line4Torchs,line5Torchs, nil];
     self.playTimer=[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(playZombie:) userInfo:nil repeats:YES];
     self.zombieFactory=[[[ZombieSimpleFactory alloc]initWithVC:self]autorelease];
     
@@ -47,12 +54,19 @@
     self.zombiePool=[[ZombiePool alloc]initWithFactory:self.zombieFactory];
     
     self.bulletPool=[[BulletPool alloc]initWithVC:self];
+    NSMutableOrderedSet* line1Bullets=[NSMutableOrderedSet orderedSet];
+    NSMutableOrderedSet* line2Bullets=[NSMutableOrderedSet orderedSet];
+    NSMutableOrderedSet* line3Bullets=[NSMutableOrderedSet orderedSet];
+    NSMutableOrderedSet* line4Bullets=[NSMutableOrderedSet orderedSet];
+    NSMutableOrderedSet* line5Bullets=[NSMutableOrderedSet orderedSet];
+    self.allBullets=[NSMutableArray  arrayWithObjects:line1Bullets,line2Bullets,line3Bullets,line4Bullets,line5Bullets, nil];
     NSMutableOrderedSet* line1Zombies=[NSMutableOrderedSet orderedSet];
     NSMutableOrderedSet* line2Zombies=[NSMutableOrderedSet orderedSet];
     NSMutableOrderedSet* line3Zombies=[NSMutableOrderedSet orderedSet];
     NSMutableOrderedSet* line4Zombies=[NSMutableOrderedSet orderedSet];
     NSMutableOrderedSet* line5Zombies=[NSMutableOrderedSet orderedSet];
     self.allZombies=[NSMutableArray arrayWithObjects:line1Zombies,line2Zombies,line3Zombies,line4Zombies,line5Zombies, nil];
+    
     
     
 }
@@ -64,20 +78,67 @@
     
 }
 -(void)moveAllZombies{
-    for (NSMutableArray* zombs in self.allZombies) {
-        
+    for (NSMutableOrderedSet* zombs in self.allZombies) {
         for (int i=0;i<zombs.count;i++) {
             Zombie* zomb=(Zombie*)zombs[i];
             [zomb move];
             
         }
+        [zombs sortUsingComparator:^NSComparisonResult(Zombie* zombie1 , Zombie* zombie2) {
+            return zombie1.center.x>zombie2.center.x;
+        }];
+        
     }
     
 }
 -(void)moveAllBullets{
-    for (int i=0;i<self.allBullets.count;i++) {
-        Bullet* bullet=(Bullet*)self.allBullets[i];
-        [bullet move];
+    
+    for (NSMutableOrderedSet* bullets in self.allBullets) {
+        Bullet* bulletHead=nil;
+        Zombie* zombieHead=nil;
+        for (int i=0;i<bullets.count;i++) {
+            Bullet* bullet=(Bullet*)bullets[i];
+            [bullet move];
+            
+        }
+        if(bullets.count>0){
+            [bullets sortUsingComparator:^NSComparisonResult(Bullet* bullet1, Bullet* bullet2) {
+                return bullet1.center.x<bullet2.center.x;
+            }];
+            bulletHead=[bullets objectAtIndex:0];
+        }
+
+        
+        if (bulletHead.myLineZombies.count) {
+            
+            zombieHead =[bulletHead myLineZombies][0];
+
+            if(bulletHead.frame.origin.x+bulletHead.frame.size.width<zombieHead.frame.origin.x){
+    
+                continue;
+            }
+            else if(CGRectIntersectsRect(bulletHead.frame, zombieHead.frame)){
+               
+                int index=0;
+                while (index<bullets.count) {
+                    Bullet* bullet=bullets[index];
+                    if(![bullet hitHeadZombie])
+                        index++;
+                }
+                continue;
+            }
+           
+              
+          
+                int index=0;
+                while (index<bullets.count) {
+                    Bullet* bullet=bullets[index];
+                    if(![bullet hitAllZombie])
+                        index++;
+                   }
+           
+            
+          }
         
     }
     
@@ -87,13 +148,14 @@
     
     switch (sender.state) {
         case UIGestureRecognizerStateBegan:
-
+            
             if([sender.view isEqual:self.shovelBK ]){
                 [self createShovel];
                 return;
             }
-            if([self checkShadeView:sender])
-                return;
+            //disable plant cd...
+            //if([self checkShadeView:sender])
+            //    return;
             [self disableAllGestureExceptMe:sender];
             _dragPlant=[self.plantFactory createPlantWithType:sender.view.tag Frame:sender.view.frame];
             self.currentShadeView=[[ShadeView alloc]initWithFrame:sender.view.frame];
@@ -112,7 +174,7 @@
             }
             break;
         case UIGestureRecognizerStateEnded:
-          
+            
             if (_dragPlant) {
                 for (UIView *item in self.plantBlocks) {
                     if (CGRectContainsPoint(item.frame, p)) {
@@ -120,19 +182,21 @@
                             
                             _dragPlant.lineNum=item.tag;
                             [self.allPlants[_dragPlant.lineNum] addObject:_dragPlant];
-                            
-                            {
-                                [_dragPlant removeFromSuperview];
-                                [item addSubview:_dragPlant];
+                            if(sender.view.tag==4){
+                                [self.allTorchs[_dragPlant.lineNum]addObject:_dragPlant];
                             }
+                            
+                            [_dragPlant removeFromSuperview];
+                            [item addSubview:_dragPlant];
+                            
                             self.currentShadeView.shadeViews=self.shadeViews;
                             [self.shadeViews addObject:self.currentShadeView];
                             
                             [self.view addSubview:self.currentShadeView];
                             
-                          
+                            
                             [self beginShadeAnimation];
-                           
+                            
                             
                             _dragPlant.center = CGPointMake(item.frame.size.width/2, item.frame.size.height/2);
                             [_dragPlant beginAnimation];
@@ -172,7 +236,7 @@
             [self enableAllGesture];
             break;
         case UIGestureRecognizerStateCancelled:
-           
+            
             if (_dragPlant) {
                 [_dragPlant removeFromSuperview];
                 self.dragPlant = nil;

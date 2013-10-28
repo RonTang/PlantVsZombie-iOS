@@ -31,6 +31,7 @@
 @property (retain, nonatomic) IBOutletCollection(UIImageView) NSArray *plantSeeds;
 @property (retain,nonatomic)BulletPool* bulletPool;
 @property (retain,nonatomic)ZombiePool* zombiePool;
+@property (retain,nonatomic)NSMutableArray* allTorchs;
 @property (retain,nonatomic)NSMutableArray* allZombies;
 @property (retain,nonatomic)NSMutableArray* allPlants;
 @property (retain,nonatomic)NSMutableArray* allBullets;

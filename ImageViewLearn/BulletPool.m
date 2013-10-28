@@ -20,7 +20,7 @@
     return  self;
 }
 -(void)createAllBullet{
-    for(int i=0;i<200;i++){
+    for(int i=0;i<400;i++){
         [self.allBullets addObject:[[Bullet alloc]initWithVC:self.vc x:0 y:0 LineNum:0 State:0]];
         
     }
@@ -32,6 +32,7 @@
 }
 -(Bullet*)getBullet{
     Bullet* bullet= [self.allBullets lastObject];
+    
     [self.allBullets removeLastObject];
     return bullet;
 }

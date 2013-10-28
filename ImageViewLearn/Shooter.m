@@ -42,10 +42,13 @@
     bullet.bulletState=0;
     bullet.fireIndex=-1;
     [bullet changePicture];
+    bullet.myLineTorchs=self.vc.allTorchs[self.lineNum];
     bullet.myLineZombies=self.vc.allZombies[self.lineNum];
     bullet.myLinePlants=self.vc.allPlants[self.lineNum];
-    [self.vc.allBullets addObject:bullet];
+    bullet.myLineBullets=self.vc.allBullets[self.lineNum];
+    [self.vc.allBullets[self.lineNum] addObject:bullet];
     [self.vc.view addSubview:bullet];
+ 
 
 }
 @end

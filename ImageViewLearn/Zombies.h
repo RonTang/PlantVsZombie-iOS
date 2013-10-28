@@ -18,7 +18,7 @@
 @property(nonatomic,assign)unsigned int deadCount;//dead animation
 @property (nonatomic,assign)ViewController* vc;//delegate
 @property (nonatomic,assign)NSMutableArray* zombieImages;//animation images
-//@property (nonatomic,assign)NSTimer* moveTimer;//move timer
+
 @property (nonatomic,assign)unsigned int lineNum;
 -(void)move;// move
 -(void)goToHell;// death

@@ -30,11 +30,12 @@
    SunShine* current=[[SunShine alloc]initWithVC:self.vc x:p.x y:p.y];
    [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(cleanSunshine:) userInfo:current repeats:NO];
 }
+
 -(void)cleanSunshine:(NSTimer*)timer{
     SunShine* sun=timer.userInfo;
     if(sun.superview!=nil){
         [sun removeFromSuperview];
-        //if([sun gestureRecognizers].count!=0)
+      
         [sun removeGestureRecognizer:[[sun gestureRecognizers]lastObject]];
         [sun release];
      
@@ -42,7 +43,7 @@
     }
 }
 -(void)dealloc{
-    NSLog(@"Flower dead");
+  
     [super dealloc];
 }
 @end

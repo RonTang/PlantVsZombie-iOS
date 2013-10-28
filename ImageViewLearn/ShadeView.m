@@ -21,7 +21,7 @@
 }
 
 -(void)canGetPlantSeed{
-    NSLog(@"----shadeViews count:%i",self.shadeViews.count);
+    //NSLog(@"----shadeViews count:%i",self.shadeViews.count);
     [self removeFromSuperview];
     [self.shadeViews removeObject:self];
     [self release];
@@ -29,7 +29,7 @@
 }
 
 -(void)dealloc{
-    NSLog(@"shadeView dead");
+    //NSLog(@"shadeView dead");
     [super dealloc];
 
 }

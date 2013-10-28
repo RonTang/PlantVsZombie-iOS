@@ -21,8 +21,6 @@
 
 -(void)beginAnimation{
 
-   //************//
-    NSLog(@"flower life:%i",[self retainCount]);
     self.viewRect=[self convertRect:self.frame toView:self.vc.view];
     self.viewLocation=[self convertPoint:self.center toView:self.vc.view];
     if([self respondsToSelector:@selector(shake:)])
@@ -31,7 +29,7 @@
     self.shootTimer  =[NSTimer scheduledTimerWithTimeInterval:1.6 target:self selector:@selector(shoot:) userInfo:nil repeats:YES];
     if([self respondsToSelector:@selector(comingSunshine)])
     self.shineTimer=[NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(comingSunshine) userInfo:nil repeats:YES];
-    NSLog(@"flower life:%i",[self retainCount]);
+   
   
 }
 
@@ -45,27 +43,28 @@
 
 }
 -(void)goToHell{
-    NSLog(@"----plant go to hell---");
-    NSLog(@"init %i",[self retainCount]);
+    //NSLog(@"----plant go to hell---");
+    //NSLog(@"init %i",[self retainCount]);
     if(self.shakeTimer!=nil){
         [self.shakeTimer invalidate];
-        NSLog(@"shake: %i",[self retainCount]);
+        //NSLog(@"shake: %i",[self retainCount]);
     }
     if(self.shootTimer!=nil){
       [self.shootTimer invalidate];
-        NSLog(@"shoot: %i",[self retainCount]);
+        //NSLog(@"shoot: %i",[self retainCount]);
     }
     if(self.shineTimer!=nil){
     [self.shineTimer invalidate];
-        NSLog(@"shine: %i",[self retainCount]);
+        //NSLog(@"shine: %i",[self retainCount]);
       
     }
     
    
-     NSLog(@"dead Plant:retainCount:%i",[self retainCount]);
+    //NSLog(@"dead Plant:retainCount:%i",[self retainCount]);
     [self.vc.allPlants[self.lineNum] removeObject:self];
-    NSLog(@"dead Plant:retainCount:%i",[self retainCount]);
+    //NSLog(@"dead Plant:retainCount:%i",[self retainCount]);
     [self removeFromSuperview];
+    
    
    
 

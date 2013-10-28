@@ -12,6 +12,7 @@
 #import "IceShooter.h"
 #import "BigNut.h"
 #import "Torch.h"
+#import "Garlic.h"
 @interface PlantSimpleFactory()
 
 @property (nonatomic,retain)NSMutableArray* plantClasses;
@@ -20,13 +21,13 @@
 @implementation PlantSimpleFactory
 -(id)init{
     if(self=[super init]){
-        self.plantClasses=[NSMutableArray arrayWithObjects:[SunFlower class],[Shooter class],[IceShooter class],[BigNut class],[Torch class], nil];
+        self.plantClasses=[NSMutableArray arrayWithObjects:[SunFlower class],[Shooter class],[IceShooter class],[BigNut class],[Torch class],[Garlic class], nil];
     
         
     }
     return  self;
 }
-//************//
+
 -(id<Plants>)createPlantWithType:(int)type Frame:(CGRect)frame{
    
     return [[self.plantClasses[type] alloc]initWithFrame:frame];

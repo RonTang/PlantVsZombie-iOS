@@ -14,11 +14,14 @@
 @property (nonatomic,assign)int bulletState;
 @property (nonatomic,assign)ViewController* vc;
 @property (nonatomic,assign)unsigned int lineNum;
+@property (nonatomic,assign)NSMutableOrderedSet* myLineBullets;
 @property (nonatomic,assign)NSMutableOrderedSet* myLineZombies;
 @property (nonatomic,assign)NSMutableOrderedSet* myLinePlants;
+@property (nonatomic,assign)NSMutableArray* myLineTorchs;
 @property (nonatomic,assign)UIView* currentFireView;
 -(id)initWithVC:(ViewController*)vc x:(int)x y:(int)y LineNum:(unsigned int)lineNum State:(int)state;
 -(void)move;
--(void)hitZombie;
+-(BOOL)hitAllZombie;
+-(BOOL)hitHeadZombie;
 -(void)changePicture;
 @end

@@ -11,6 +11,7 @@
 
 @class Zombie;
 @class ZombieSimpleFactory;
+float zombieOffsetY[5];
 @interface ZombiePool : NSObject
 
 
