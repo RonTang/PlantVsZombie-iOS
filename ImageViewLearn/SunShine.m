@@ -19,9 +19,7 @@ static UIImage* sunShineImage=nil;
 -(id)initWithVC:(ViewController *)vc x:(int)x y:(int)y{
     if(self=[super init]){
         self.vc=vc;
-        if(sunShineImage==nil){
-            sunShineImage=[UIImage imageNamed:@"sun.png"];
-        }
+        
         if(sunShineImage==nil)
             sunShineImage=[[UIImage imageNamed:@"sun.png"]retain];
         self.image=sunShineImage;
