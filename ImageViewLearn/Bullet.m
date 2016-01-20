@@ -19,9 +19,9 @@ static UIImage* fireBulletImage=nil;
         self.vc=vc;
         self.bulletState=state;
         if(bulletImage==nil){
-            bulletImage=[UIImage imageNamed:@"bullet_0.png"];
-            iceBulletImage=[UIImage imageNamed:@"bullet_1.png"];
-            fireBulletImage=[UIImage imageNamed:@"bullet_2.png"];
+            bulletImage=[[UIImage imageNamed:@"bullet_0.png"]retain];
+            iceBulletImage=[[UIImage imageNamed:@"bullet_1.png"]retain];
+            fireBulletImage=[[UIImage imageNamed:@"bullet_2.png"]retain];
         }
         self.frame=CGRectMake(x+10, y-5, 15, 15);
         self.tag=100;
